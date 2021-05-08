@@ -1,10 +1,16 @@
 package sewa.practice.recipeapp.domain;
 
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.query.parser.Part;
 
 import javax.persistence.*;
 
+@Data
 @Entity
+@Slf4j
+@NoArgsConstructor
+@AllArgsConstructor
 public class UnitOfMeasure {
 
     @Id
@@ -12,31 +18,4 @@ public class UnitOfMeasure {
     private Long Id;
 
     private String uom;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Ingredient ingredient;
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getUom() {
-        return uom;
-    }
-
-    public void setUom(String uom) {
-        this.uom = uom;
-    }
-
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
 }

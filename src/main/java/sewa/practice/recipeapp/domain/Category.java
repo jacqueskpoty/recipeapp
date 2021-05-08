@@ -1,25 +1,23 @@
 package sewa.practice.recipeapp.domain;
 
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"recipe"})
-@Slf4j
-public class Notes {
+@EqualsAndHashCode(exclude = {"recipies"})
+@Entity
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @OneToOne
-    private Recipe recipe;
+    private String description;
 
-    @Lob
-    private String recipeNotes;
+    @ManyToMany(mappedBy = "categories")
+    private Set<Recipe> recipies;
 }

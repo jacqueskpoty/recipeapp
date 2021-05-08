@@ -1,8 +1,16 @@
 package sewa.practice.recipeapp.domain;
 
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Data
+@Slf4j
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
 
@@ -18,27 +26,10 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
         this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
         this.amount = amount;
+        this.uom = uom;
+        this.recipe = recipe;
     }
 }
