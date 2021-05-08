@@ -19,11 +19,6 @@ class CategoryRepositoryTest {
     @Autowired
     CategoryRepository categoryRepository;
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     void findByDescriptionTest(){
         Optional<Category> category = categoryRepository.findByDescription("American");
