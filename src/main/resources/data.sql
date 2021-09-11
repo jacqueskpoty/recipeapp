@@ -1,14 +1,12 @@
-INSERT INTO CATEGORY(description) VALUES('American')
-INSERT INTO CATEGORY(description) VALUES('Mexican')
-INSERT INTO CATEGORY(description) VALUES('Italian')
-INSERT INTO CATEGORY(description) VALUES('African')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Tablespoon')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Teaspoon')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Cup')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Pinch')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Ounce')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Dash')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Each')
-INSERT INTO UNIT_OF_MEASURE(uom) VALUES('Pint')
-
-
+INSERT INTO category (description) VALUES ('American');
+INSERT INTO category (description) VALUES ('Italian');
+INSERT INTO category (description) VALUES ('Mexican');
+INSERT INTO category (description) VALUES ('Fast Food');
+INSERT INTO unit_of_measure (description) VALUES ('Teaspoon');
+INSERT INTO unit_of_measure (description) VALUES ('Tablespoon');
+INSERT INTO unit_of_measure (description) VALUES ('Cup');
+INSERT INTO unit_of_measure (description) VALUES ('Pinch');
+INSERT INTO unit_of_measure (description) VALUES ('Ounce');
+INSERT INTO unit_of_measure (description) VALUES ('Each');
+INSERT INTO unit_of_measure (description) VALUES ('Dash');
+INSERT INTO unit_of_measure (description) VALUES ('Pint');

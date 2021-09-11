@@ -18,4 +18,6 @@ public class UnitOfMeasure {
     private Long Id;
 
     private String uom;
+
+    private String description;
 }
