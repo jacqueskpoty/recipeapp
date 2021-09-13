@@ -3,6 +3,10 @@ package sewa.practice.recipeapp.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import sewa.practice.recipeapp.commands.RecipeCommand;
+import sewa.practice.recipeapp.converters.RecipeCommandToRecipe;
+import sewa.practice.recipeapp.converters.RecipeToRecipeCommand;
 import sewa.practice.recipeapp.domain.Recipe;
 import sewa.practice.recipeapp.repository.RecipeRepository;
 
@@ -16,6 +20,8 @@ import java.util.Set;
 public class RecipeServiceImpl implements RecipeService{
 
     private final RecipeRepository recipeRepository;
+    private final RecipeCommandToRecipe recipeCommandToRecipe;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
     @Override
     public Set<Recipe> getRecipes() {
@@ -34,5 +40,15 @@ public class RecipeServiceImpl implements RecipeService{
         }
 
         return recipeOptional.get();
+    }
+
+    @Override
+    @Transactional
+    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+        Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
+
+        Recipe savedRecipe = recipeRepository.save(detachedRecipe);
+        log.debug("Saved RecipeId:" + savedRecipe.getId());
+        return recipeToRecipeCommand.convert(savedRecipe);
     }
 }
